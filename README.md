@@ -12,7 +12,7 @@ _✨ NoneBot 插件简单描述 ✨_
 
 
 <a href="./LICENSE">
-    <img src="https://img.shields.io/github/license/owner/nonebot-plugin-example.svg" alt="license">
+    <img src="https://img.shields.io/github/license/zhuhiki/nonebot-plugin-example.svg" alt="license">
 </a>
 <a href="https://pypi.python.org/pypi/nonebot-plugin-example">
     <img src="https://img.shields.io/pypi/v/nonebot-plugin-example.svg" alt="pypi">
@@ -86,7 +86,7 @@ _✨ NoneBot 插件简单描述 ✨_
 
 打开 nonebot2 项目根目录下的 `pyproject.toml` 文件, 在 `[tool.nonebot]` 部分追加写入
 
-    plugins = ["nonebot_plugin_example"]
+    plugins = ["nonebot_plugin_matchreminder"]
 
 </details>
 
