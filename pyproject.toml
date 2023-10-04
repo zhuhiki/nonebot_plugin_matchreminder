@@ -1,6 +1,6 @@
-[tool.poetry]
+[project]
 name = "nonebot_plugin_matchreminder"
-version = "1.2.0"
+version = "1.0.0"
 description = "定时设置算法比赛赛前提醒，提醒群友别错过比赛，查询codeforce，atc，牛客比赛消息"
 authors = ["zhuhiki <z1607258120@163.com>"]
 license = "MIT"
@@ -9,7 +9,7 @@ packages = [{include = "nonebot_plugin_matchreminder"}]
 homepage = "https://github.com/zhuhiki/nonebot_plugin_matchreminder"
 repository = "https://github.com/zhuhiki/nonebot_plugin_matchreminder"
 
-[tool.poetry.dependencies]
+[dependencies]
 python = ">=3.8"
 nonebot2 = { version = "^2.0.0", extras = ["fastapi"] }
 nonebot-adapter-onebot = ">=2.1.5"
@@ -19,5 +19,5 @@ bs4 = ">=0.0.1"
 asyncio = ">=3.4.3"
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
