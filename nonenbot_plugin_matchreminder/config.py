@@ -12,4 +12,4 @@ class Config(BaseModel, extra=Extra.ignore):
     matchreminder_list: List[str] = []
     """Plugin Config Here"""
 
-matchreminder_config = Config
+matchreminder_config = Config.parse_obj(get_driver().config.dict())
