@@ -68,9 +68,8 @@ async def auto_notice():
         for cfn in cf:
             cur_time = datetime.datetime.strptime(str(cfn[1]), "%Y-%m-%d %H:%M").date()
             if cur_time == today:
-                date_object = datetime.datetime.strptime(cfn[1], '%Y-%m-%d %H:%M')+timedelta(minutes=-30)
-                date_object1=datetime.datetime.strftime(date_object,'%H:%M')
-                date_object1 = datetime.datetime.strptime(date_object1, '%H:%M')
+                date_object1 = datetime.datetime.strptime(cfn[1], '%Y-%m-%d %H:%M')+timedelta(minutes=-30)
+               
                 msg1='哇哇哇，马上要比赛喽，可别迟到了啊！'+'\n'
                 if n==0:
                     msg1+='◉cf比赛：\n'
@@ -79,16 +78,15 @@ async def auto_notice():
                 msg1 += "比赛时间：" + cfn[1] + '\n'
                 msg1 += "比赛链接：" + cfn[2] + '\n'
                 if scheduler:
-                    scheduler.add_job(noticemesage,'cron',hour=date_object1.hour,minute=date_object1.minute,kwargs={"msg":msg1 })
+                    scheduler.add_job(noticemesage,'date',datetime=date_object1,kwargs={"msg":msg1 })
                     logger.info('cf比赛提醒添加成功')
     n=0
     if(len(nc)>0):
         for ncn in nc:
             cur_time = datetime.datetime.strptime(str(ncn[1]), "%Y-%m-%d %H:%M").date()
             if cur_time == today:
-                date_object = datetime.datetime.strptime(ncn[1], '%Y-%m-%d %H:%M') + timedelta(minutes=-30)
-                date_object2 = datetime.datetime.strftime(date_object, '%H:%M')
-                date_object2 = datetime.datetime.strptime(date_object2, '%H:%M')
+                date_object2 = datetime.datetime.strptime(ncn[1], '%Y-%m-%d %H:%M') + timedelta(minutes=-30)
+                
                 msg2 = '哇哇哇，马上要比赛喽，可别迟到了啊！' + '\n'
                 if n==0:
                     msg2+='◉牛客比赛：\n'
@@ -97,15 +95,14 @@ async def auto_notice():
                 msg2 += "比赛时间：" + ncn[1] + '\n'
                 msg2 += "比赛链接：" + ncn[2] + '\n'
                 if scheduler:
-                    scheduler.add_job(noticemesage, 'cron', hour=date_object2.hour, minute=date_object2.minute, kwargs={"msg":msg2 })
+                    scheduler.add_job(noticemesage, 'date', datetime=date_object2, kwargs={"msg":msg2 })
                     logger.info('牛客比赛提醒添加成功')
     if(len(atc)>0):
         for atcn in atc:
             cur_time = datetime.datetime.strptime(str(atcn[1]), "%Y-%m-%d %H:%M").date()
             if cur_time == today:
-                date_object = datetime.datetime.strptime(atcn[1], '%Y-%m-%d %H:%M') + timedelta(minutes=-30)
-                date_object3 = datetime.datetime.strftime(date_object,'%H:%M')
-                date_object3=datetime.datetime.strptime(date_object3,'%H:%M')
+                date_object3 = datetime.datetime.strptime(atcn[1], '%Y-%m-%d %H:%M') + timedelta(minutes=-30)
+                
                 msg3 = '哇哇哇，马上要比赛喽，可别迟到了啊！' + '\n'
                 if n==0:
                     msg3+='◉atc比赛：\n'
@@ -114,7 +111,7 @@ async def auto_notice():
                 msg3 += "比赛时间：" + atcn[1] + '\n'
                 msg3 += "比赛链接：" + atcn[2] + '\n'
                 if scheduler:
-                    scheduler.add_job(noticemesage, 'cron', hour=date_object3.hour,minute=date_object3.minute,kwargs={"msg":msg3 })
+                    scheduler.add_job(noticemesage, 'date', datetime=date_object3,kwargs={"msg":msg3 })
                     logger.info('atc比赛提醒添加成功')
     if(len(cf)==0 and len(nc)==0 and len(nc)==0):
         await noticemesage(msg='获取比赛异常，问问管理员吧！')
@@ -145,9 +142,8 @@ async def noticehand():
             cur_time = datetime.datetime.strptime(str(cfn[1]), "%Y-%m-%d %H:%M").date()
             if cur_time == today:
                 #在此处修改比赛提醒的时间,下面同理
-                date_object = datetime.datetime.strptime(cfn[1], '%Y-%m-%d %H:%M')+timedelta(minutes=-30)
-                date_object1=datetime.datetime.strftime(date_object,'%H:%M')
-                date_object1 = datetime.datetime.strptime(date_object1, '%H:%M')
+                date_object1 = datetime.datetime.strptime(cfn[1], '%Y-%m-%d %H:%M')+timedelta(minutes=-30)
+        
                 msg1='哇哇哇，马上要比赛喽，可别迟到哇！'+'\n'
                 if n==0:
                     msg1+='◉cf比赛：\n'
@@ -156,16 +152,15 @@ async def noticehand():
                 msg1 += "比赛时间：" + cfn[1] + '\n'
                 msg1 += "比赛链接：" + cfn[2] + '\n'
                 if scheduler:
-                    scheduler.add_job(noticemesage,'cron',hour=date_object1.hour,minute=date_object1.minute,kwargs={"msg":msg1 })
+                    scheduler.add_job(noticemesage,'date',datetime=date_object1,kwargs={"msg":msg1 })
                     logger.info('cf比赛提醒添加成功')
     n=0
     if(len(nc)>0):
         for ncn in nc:
             cur_time = datetime.datetime.strptime(str(ncn[1]), "%Y-%m-%d %H:%M").date()
             if cur_time == today:
-                date_object = datetime.datetime.strptime(ncn[1], '%Y-%m-%d %H:%M') + timedelta(minutes=-30)
-                date_object2 = datetime.datetime.strftime(date_object, '%H:%M')
-                date_object2 = datetime.datetime.strptime(date_object2, '%H:%M')
+                date_object2 = datetime.datetime.strptime(ncn[1], '%Y-%m-%d %H:%M') + timedelta(minutes=-30)
+                
                 msg2 = '哇哇哇，马上要比赛喽，可别迟到哇！' + '\n'
                 if n==0:
                     msg2+='◉牛客比赛：\n'
@@ -174,16 +169,15 @@ async def noticehand():
                 msg2 += "比赛时间：" + ncn[1] + '\n'
                 msg2 += "比赛链接：" + ncn[2] + '\n'
                 if scheduler:
-                    scheduler.add_job(noticemesage, 'cron', hour=date_object2.hour, minute=date_object2.minute, kwargs={"msg":msg2 })
+                    scheduler.add_job(noticemesage, 'date', datetime=date_object2, kwargs={"msg":msg2 })
 
                     logger.info('牛客比赛提醒添加成功')
     if(len(atc)>0):
         for atcn in atc:
             cur_time = datetime.datetime.strptime(str(atcn[1]), "%Y-%m-%d %H:%M").date()
             if cur_time == today:
-                date_object = datetime.datetime.strptime(atcn[1], '%Y-%m-%d %H:%M') + timedelta(minutes=-30)
-                date_object3 = datetime.datetime.strftime(date_object,'%H:%M')
-                date_object3=datetime.datetime.strptime(date_object3,'%H:%M')
+                date_object3 = datetime.datetime.strptime(atcn[1], '%Y-%m-%d %H:%M') + timedelta(minutes=-30)
+                
                 msg3 = '哇哇哇，马上要比赛喽，可别迟到哇！' + '\n'
                 if n==0:
                     msg3+='◉atc比赛：\n'
@@ -192,7 +186,7 @@ async def noticehand():
                 msg3 += "比赛时间：" + atcn[1] + '\n'
                 msg3 += "比赛链接：" + atcn[2] + '\n'
                 if scheduler:
-                    scheduler.add_job(noticemesage, 'cron', hour=date_object3.hour,minute=date_object3.minute,kwargs={"msg":msg3 })
+                    scheduler.add_job(noticemesage, 'date', datetime=date_object3,kwargs={"msg":msg3 })
                     logger.info('atc比赛提醒添加成功')
     if(len(cf)==0 and len(nc)==0 and len(nc)==0):
         await notice.finish(message='获取比赛异常，问问管理员吧！')
