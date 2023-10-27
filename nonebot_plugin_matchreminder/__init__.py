@@ -78,7 +78,7 @@ async def auto_notice():
                 msg1 += "比赛时间：" + cfn[1] + '\n'
                 msg1 += "比赛链接：" + cfn[2] + '\n'
                 if scheduler:
-                    scheduler.add_job(noticemesage,'date',datetime=date_object1,kwargs={"msg":msg1 })
+                    scheduler.add_job(noticemesage,'date',run_date=date_object1,kwargs={"msg":msg1 })
                     logger.info('cf比赛提醒添加成功')
     n=0
     if(len(nc)>0):
@@ -95,7 +95,7 @@ async def auto_notice():
                 msg2 += "比赛时间：" + ncn[1] + '\n'
                 msg2 += "比赛链接：" + ncn[2] + '\n'
                 if scheduler:
-                    scheduler.add_job(noticemesage, 'date', datetime=date_object2, kwargs={"msg":msg2 })
+                    scheduler.add_job(noticemesage, 'date', run_date=date_object2, kwargs={"msg":msg2 })
                     logger.info('牛客比赛提醒添加成功')
     if(len(atc)>0):
         for atcn in atc:
@@ -111,7 +111,7 @@ async def auto_notice():
                 msg3 += "比赛时间：" + atcn[1] + '\n'
                 msg3 += "比赛链接：" + atcn[2] + '\n'
                 if scheduler:
-                    scheduler.add_job(noticemesage, 'date', datetime=date_object3,kwargs={"msg":msg3 })
+                    scheduler.add_job(noticemesage, 'date', run_date=date_object3,kwargs={"msg":msg3 })
                     logger.info('atc比赛提醒添加成功')
     if(len(cf)==0 and len(nc)==0 and len(nc)==0):
         await noticemesage(msg='获取比赛异常，问问管理员吧！')
@@ -152,7 +152,7 @@ async def noticehand():
                 msg1 += "比赛时间：" + cfn[1] + '\n'
                 msg1 += "比赛链接：" + cfn[2] + '\n'
                 if scheduler:
-                    scheduler.add_job(noticemesage,'date',datetime=date_object1,kwargs={"msg":msg1 })
+                    scheduler.add_job(noticemesage,'date',run_date=date_object1,kwargs={"msg":msg1 })
                     logger.info('cf比赛提醒添加成功')
     n=0
     if(len(nc)>0):
@@ -169,7 +169,7 @@ async def noticehand():
                 msg2 += "比赛时间：" + ncn[1] + '\n'
                 msg2 += "比赛链接：" + ncn[2] + '\n'
                 if scheduler:
-                    scheduler.add_job(noticemesage, 'date', datetime=date_object2, kwargs={"msg":msg2 })
+                    scheduler.add_job(noticemesage, 'date', run_date=date_object2, kwargs={"msg":msg2 })
 
                     logger.info('牛客比赛提醒添加成功')
     if(len(atc)>0):
@@ -186,7 +186,7 @@ async def noticehand():
                 msg3 += "比赛时间：" + atcn[1] + '\n'
                 msg3 += "比赛链接：" + atcn[2] + '\n'
                 if scheduler:
-                    scheduler.add_job(noticemesage, 'date', datetime=date_object3,kwargs={"msg":msg3 })
+                    scheduler.add_job(noticemesage, 'date', run_date=date_object3,kwargs={"msg":msg3 })
                     logger.info('atc比赛提醒添加成功')
     if(len(cf)==0 and len(nc)==0 and len(nc)==0):
         await notice.finish(message='获取比赛异常，问问管理员吧！')
