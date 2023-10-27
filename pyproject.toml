@@ -1,6 +1,6 @@
 [project]
 name = "nonebot_plugin_matchreminder"
-version = "1.0.3"
+version = "1.0.4"
 description = "定时设置算法比赛赛前提醒，提醒群友别错过比赛，查询codeforce，atc，牛客比赛消息"
 authors = [
     {name = "zhuhiki", email = "z1607258120@163.com"},
